@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const mongodb = require('mongodb');
 const bodyParser = require('body-parser');
+require("dotenv").config();
 
 // Connect to MongoDB
 const uri =  process.env.MONGODB_URI;
@@ -12,7 +13,7 @@ client.connect((err) => {
     process.exit(1);
   }
 
-  const db = client.db('mydb');
+  const db = client.db('forwarding');
   const collection = db.collection('domains');
 
   app.use((req, res, next) => {
