@@ -4,7 +4,7 @@ const mongodb = require('mongodb');
 const bodyParser = require('body-parser');
 
 // Connect to MongoDB
-const uri = 'mongodb://localhost:27017';
+const uri =  process.env.MONGODB_URI;
 const client = new mongodb.MongoClient(uri, { useNewUrlParser: true });
 client.connect((err) => {
   if (err) {
